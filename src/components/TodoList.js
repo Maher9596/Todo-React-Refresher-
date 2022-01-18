@@ -6,7 +6,7 @@ import { ListItem } from "@mui/material";
 import { Divider } from "@mui/material";
 import { ListItemText } from "@mui/material";
 
-function TodoList({todos, removeTodo, toggleTodo}) {
+function TodoList({todos, removeTodo, toggleTodo, editTodo}) {
     
     return (
         <Paper>
@@ -22,6 +22,7 @@ function TodoList({todos, removeTodo, toggleTodo}) {
                                     completed={todo.completed} 
                                     removeTodo={removeTodo}
                                     toggleTodo={toggleTodo}
+                                    editTodo={editTodo}
                                 />
                                     
                             </ListItemText>
