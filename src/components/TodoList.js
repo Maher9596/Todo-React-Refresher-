@@ -23,8 +23,7 @@ function TodoList({todos, removeTodo, toggleTodo, editTodo}) {
                                     removeTodo={removeTodo}
                                     toggleTodo={toggleTodo}
                                     editTodo={editTodo}
-                                />
-                                    
+                                />                                   
                             </ListItemText>
                         </ListItem>
                         <Divider/>

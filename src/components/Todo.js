@@ -8,7 +8,7 @@ function Todo({task, completed, removeTodo, id, toggleTodo, editTodo}) {
     const [isEditting, toggle] = useToggle(false)
     return (
         <div>
-            <ListItem>
+            <ListItem style={{height: "64px"}}>
                 {isEditting ? (<EditTodoForm id={id}  editTodo={editTodo} task={task} toggleEditForm={toggle}/>) : (
                 <>
                 <Checkbox tabIndex={-1} checked={completed} onClick={() => toggleTodo(id)}/>

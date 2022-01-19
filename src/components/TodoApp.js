@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import TodoList from './TodoList'
 import TodoForm from './TodoForm'
 import { v4 as uuidv4 } from 'uuid'
@@ -9,12 +9,13 @@ import { Toolbar } from "@mui/material";
 import { Grid } from "@mui/material";
 
 function TodoApp() {
-    const initialValues = [
-        {id: 1, task: "Write Code", completed: false},
-        {id: 2, task: "Nap", completed: true},
-        {id: 3, task: "Buy Coffee", completed: true}
-    ]
-    const [todos, setTodos] = useState(initialValues)
+    const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]")
+ 
+    const [todos, setTodos] = useState(initialTodos)
+
+    useEffect(() => {
+        window.localStorage.setItem("todos", JSON.stringify(todos))
+    }, [todos])
 
     const addTodo = (newTodoText) => {
         setTodos([...todos, {id: uuidv4(), task:newTodoText, completed: false}])
